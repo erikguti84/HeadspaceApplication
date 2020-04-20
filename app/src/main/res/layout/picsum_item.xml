@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="picsum_response"
+            type="com.example.headspaceapplication.model.PicsumResponse" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:elevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/picsum_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                app:profileImage="@{picsum_response.downloadUrl}"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:gravity="center_horizontal"
+                app:htmlText="@{picsum_response.author}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/picsum_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_dimensions"
+                tools:text="Author" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_dimensions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:gravity="center_horizontal"
+                app:htmlText="@{picsum_response.width +` x `+ picsum_response.height}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/picsum_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_author"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="254 x 265" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.ListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        android:fitsSystemWindows="true">
+        <EditText
+            android:id="@+id/et_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_submit"
+            app:layout_constraintBottom_toTopOf="@id/rvPicsum"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:hint="@string/enter_page_number"
+            android:textColorHint="@color/white"
+            android:gravity="start"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rvPicsum"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPicsum"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_page"
+            tools:listitem="@layout/picsum_item"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
